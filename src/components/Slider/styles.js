@@ -67,37 +67,13 @@ export const SliderInformTitle = styled.p`
 `;
 //TODO:
 export const SliderButton = styled.button`
-  background: ${({ theme }) => theme.colors.orange};
-  border: 1px solid ${({ theme }) => theme.colors.orange};
-  border-radius: 40px;
   padding: 12px 24px;
-  ${({ theme }) => theme.mixins.fCenter};
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: ${({ theme }) => theme.colors.white};
-  transition: var(--transition);
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.black};
-    border-color: ${({ theme }) => theme.colors.black};
-  }
-
-  &:active {
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.grey};
-    border-color: ${({ theme }) => theme.colors.grey};
-  }
-
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.pinkWhite};
-    border-color: ${({ theme }) => theme.colors.pinkWhite};
-    color: ${({ theme }) => theme.colors.white5};
-    cursor: not-allowed;
-  }
+  ${({ theme }) => theme.mixins.button};
 `;
 
 export const SliderImageWrapper = styled.div`

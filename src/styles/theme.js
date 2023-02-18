@@ -28,7 +28,7 @@ const theme = {
     black3: '#000000',
     black4: 'rgba(0, 0, 0, 0.1)',
     black5: '#1e1e1e',
-    grey: '#575757',
+    gray: '#575757',
     gray2: '#c4c4c4',
     gray3: '#333333',
     gray4: '#e0e0e0',
@@ -38,6 +38,9 @@ const theme = {
     gray8: '#4c4c4c',
     gray9: '#4b4b4b',
     gray10: '#666666',
+    gray11: '#f3f3f4',
+    gray12: '#bcbcbc',
+    gray13: '#fafafb',
   },
 
   mixins,

@@ -86,6 +86,34 @@ const mixins = {
       transform: translateX(-100%);  
     }
   `,
+
+  button: css`
+    background: ${({ theme }) => theme.colors.orange};
+    border: 1px solid ${({ theme }) => theme.colors.orange};
+    border-radius: 40px;
+    ${({ theme }) => theme.mixins.fCenter};
+    color: ${({ theme }) => theme.colors.white};
+    transition: var(--transition);
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.black};
+      border-color: ${({ theme }) => theme.colors.black};
+    }
+
+    &:active {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.grey};
+      border-color: ${({ theme }) => theme.colors.grey};
+    }
+
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.pinkWhite};
+      border-color: ${({ theme }) => theme.colors.pinkWhite};
+      color: ${({ theme }) => theme.colors.white5};
+      cursor: not-allowed;
+    }
+  `,
 };
 
 export default mixins;
