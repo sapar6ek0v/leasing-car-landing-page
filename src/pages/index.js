@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import Layout from '../components/Layout';
+import Slider from '../components/Slider';
 import Calculator from '../components/calculator';
-import Slider from '../components/slider';
 
 export default function Home() {
   return (

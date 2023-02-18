@@ -1,5 +1,5 @@
 module.exports = {
-  componyTitle: 'лизинговая компания',
+  componySlogan: 'лизинговая компания',
 
   navLinks: [
     {

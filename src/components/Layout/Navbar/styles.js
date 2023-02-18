@@ -39,7 +39,7 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 `;
-
+//TODO:
 export const NavbarWrapper = styled.nav`
   ${({ theme }) => theme.mixins.apart};
   gap: 95px;
@@ -69,7 +69,7 @@ export const NavbarWrapper = styled.nav`
     }
   }
 `;
-
+//TODO:
 export const Button = styled.button`
   margin-left: 24px;
   padding: 12px 24px;
@@ -83,18 +83,28 @@ export const Button = styled.button`
   line-height: 24px;
   color: ${({ theme }) => theme.colors.orange};
   ${({ theme }) => theme.mixins.fCenter};
+  transition: var(--transition);
 
   &:hover {
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.orange};
+    border-color: ${({ theme }) => theme.colors.orange};
   }
 
   &:active {
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.orangePressed};
+    border-color: ${({ theme }) => theme.colors.orangePressed};
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border-color: ${({ theme }) => theme.colors.orange2};
+    color: ${({ theme }) => theme.colors.orange2};
+    cursor: not-allowed;
   }
 `;
-
+//TODO:
 export const Title = styled.h4`
   position: relative;
   font-family: 'Gilroy';
@@ -118,7 +128,7 @@ export const Line = styled.div`
   background: ${({ theme }) => theme.colors.gray2};
   margin: 0 20px 0 17px;
 `;
-
+//TODO:
 export const CompanySlogan = styled.h5`
   font-family: 'Gilroy';
   font-style: normal;
