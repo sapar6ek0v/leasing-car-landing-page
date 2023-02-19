@@ -21,7 +21,7 @@ export const Label = styled.label`
   font-style: normal;
   font-weight: 400;
   ${({ theme }) => theme.mixins.fontSize16};
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const InputWrapper = styled.div`
@@ -40,7 +40,7 @@ export const Input = styled.input`
   font-weight: 900;
   padding: 16px 24px;
   ${({ theme }) => theme.mixins.fontSize30};
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.gray};
   transition: var(--transition);
 
   &:is(:focus, :focus-within) {

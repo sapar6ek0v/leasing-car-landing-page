@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { useModalContext } from '../../../helpers/hooks/useModalContext';
 import RangeInput from '../RangeInput';
 import {
   Button,
@@ -21,6 +22,8 @@ import {
 const CalculatorForm = () => {
   const [price, setPrice] = useState(1000000);
   const [month, setMonth] = useState(1);
+
+  const { openModal } = useModalContext();
 
   return (
     <FlexContainer>
@@ -65,7 +68,9 @@ const CalculatorForm = () => {
           <ResultTitle>Ежемесячный платеж от</ResultTitle>
           <DisplayResult>114 455 ₽</DisplayResult>
         </ResultContainer>
-        <Button type="button">Оставить заявку</Button>
+        <Button onClick={openModal} type="button">
+          Оставить заявку
+        </Button>
       </Row>
     </FlexContainer>
   );

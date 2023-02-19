@@ -14,8 +14,11 @@ const theme = {
   },
 
   colors: {
+    green: '#77de8d',
+    red: '#D53234',
     orange: '#FF9514',
     orange2: '#ffd5a1',
+    orange3: '#ffead0',
     orangePressed: '#FFA83D',
     white: '#FFFFFF',
     white2: '#f3f3f4',
@@ -28,6 +31,7 @@ const theme = {
     black3: '#000000',
     black4: 'rgba(0, 0, 0, 0.1)',
     black5: '#1e1e1e',
+    black6: 'rgba(0, 0, 0, 0.5)',
     gray: '#575757',
     gray2: '#c4c4c4',
     gray3: '#333333',
@@ -41,6 +45,10 @@ const theme = {
     gray11: '#f3f3f4',
     gray12: '#bcbcbc',
     gray13: '#fafafb',
+    gray14: '#e7e7e7',
+    gray15: '#828282',
+    gray16: '#a0a0a0',
+    gray17: '#EAEAEB',
   },
 
   mixins,

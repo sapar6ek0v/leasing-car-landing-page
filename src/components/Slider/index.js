@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { useModalContext } from '../../helpers/hooks/useModalContext';
 import { useSlider } from '../../helpers/hooks/useSlider';
 import ChevronArrowLeft from '../svgs/ChevronArrowLeft';
 import ChevronArrowRight from '../svgs/ChevronArrowRight';
@@ -67,6 +68,7 @@ const Slider = () => {
 
   const [activeBtn, setActiveBtn] = useState('right');
   const { slideIndex, prevSlide, nextSlide, moveDot } = useSlider(data);
+  const { openModal } = useModalContext();
 
   const handleNextSlide = () => {
     setActiveBtn('right');
@@ -88,7 +90,9 @@ const Slider = () => {
                   <SliderTitleStack>
                     <SliderTitle active={index === slideIndex}>{item.title}</SliderTitle>
                     <SliderInformTitle active={index === slideIndex}>{item.slogan}</SliderInformTitle>
-                    <SliderButton>Оставить заявку</SliderButton>
+                    <SliderButton onClick={openModal} type="button">
+                      Оставить заявку
+                    </SliderButton>
                   </SliderTitleStack>
 
                   <SliderImageWrapper active={index === slideIndex}>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 
 import { useScrollDirection } from '../../../helpers/hooks/useScrollDirection';
+import { useModalContext } from '../../../helpers/hooks/useModalContext';
 import { navLinks, componySlogan } from '../../../config';
 import { Button, CompanySlogan, Container, HeaderWrapper, Line, NavbarWrapper, Title } from './styles';
 
@@ -9,6 +10,7 @@ const Navbar = () => {
   const headerRef = useRef(null);
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const scrollDirection = useScrollDirection('down');
+  const { openModal } = useModalContext();
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -23,31 +25,35 @@ const Navbar = () => {
   }
 
   return (
-    <HeaderWrapper ref={headerRef} scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
-      <Container>
-        <NavbarWrapper>
-          <div className="leftSide">
-            <Title>
-              <span className="orange">Leasing</span>
-              <span className="black">Car</span>
-            </Title>
-            <Line />
-            <CompanySlogan>{componySlogan}</CompanySlogan>
-          </div>
+    <>
+      <HeaderWrapper ref={headerRef} scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+        <Container>
+          <NavbarWrapper>
+            <div className="leftSide">
+              <Title>
+                <span className="orange">Leasing</span>
+                <span className="black">Car</span>
+              </Title>
+              <Line />
+              <CompanySlogan>{componySlogan}</CompanySlogan>
+            </div>
 
-          <ul className="rightSide">
-            {!!navLinks
-              ? navLinks.map((link) => (
-                  <li className="link">
-                    <Link to={link.path}>{link.name}</Link>
-                  </li>
-                ))
-              : null}
-            <Button type="button">Оставить заявку</Button>
-          </ul>
-        </NavbarWrapper>
-      </Container>
-    </HeaderWrapper>
+            <ul className="rightSide">
+              {!!navLinks
+                ? navLinks.map((link) => (
+                    <li className="link" key={link.path}>
+                      <Link to={link.path}>{link.name}</Link>
+                    </li>
+                  ))
+                : null}
+              <Button onClick={openModal} type="button">
+                Оставить заявку
+              </Button>
+            </ul>
+          </NavbarWrapper>
+        </Container>
+      </HeaderWrapper>
+    </>
   );
 };
 

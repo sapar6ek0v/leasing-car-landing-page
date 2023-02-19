@@ -65,7 +65,7 @@ export const NavbarWrapper = styled.nav`
       font-weight: 700;
       font-size: 16px;
       line-height: 24px;
-      color: ${({ theme }) => theme.colors.grey};
+      color: ${({ theme }) => theme.colors.gray};
     }
   }
 `;

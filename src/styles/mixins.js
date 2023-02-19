@@ -28,6 +28,11 @@ const mixins = {
     flex-wrap: wrap;
   `,
 
+  fontSize12: css`
+    font-size: 12px;
+    line-height: 12px;
+  `,
+
   fontSize16: css`
     font-size: 16px;
     line-height: 20px;
@@ -63,6 +68,28 @@ const mixins = {
       opacity: 0;
       transform: translateY(-35%);  
     }
+  `,
+
+  fadeInY: keyframes`
+    0% {
+        opacity: 0; 
+        transform: translateY(35%);
+    }
+    100% { 
+        opacity: 1;
+        transform: translateY(0%);
+    }   
+  `,
+
+  fadeOutY: keyframes`
+    0% { 
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% { 
+      opacity: 0;
+      transform: translateY(-35%);  
+    }   
   `,
 
   fadeInX: keyframes`
@@ -103,8 +130,8 @@ const mixins = {
 
     &:active {
       color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.grey};
-      border-color: ${({ theme }) => theme.colors.grey};
+      background-color: ${({ theme }) => theme.colors.gray};
+      border-color: ${({ theme }) => theme.colors.gray};
     }
 
     &:disabled {
@@ -112,6 +139,90 @@ const mixins = {
       border-color: ${({ theme }) => theme.colors.pinkWhite};
       color: ${({ theme }) => theme.colors.white5};
       cursor: not-allowed;
+    }
+  `,
+
+  smallButtonEffects: css`
+    transition: var(--transition);
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.black};
+      border-color: ${({ theme }) => theme.colors.black};
+    }
+
+    &:active {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.gray};
+      border-color: ${({ theme }) => theme.colors.gray};
+    }
+
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.gray13};
+      border-color: ${({ theme }) => theme.colors.gray13};
+      color: ${({ theme }) => theme.colors.gray16};
+      cursor: not-allowed;
+    }
+  `,
+
+  input: css`
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.gray11};
+    border: 1px solid ${(props) => (props.error ? props.theme.colors.red : props.theme.colors.gray11)};
+    border-radius: 16px;
+    padding: 4px 24px 0;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: ${({ theme }) => theme.colors.gray};
+    transition: var(--transition);
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray17};
+      border-color: ${({ theme }) => theme.colors.gray17};
+
+      & + label {
+        top: 8%;
+        font-weight: 400;
+        ${({ theme }) => theme.mixins.fontSize12};
+      }
+    }
+
+    &:is(:focus, :focus-within) {
+      outline: 4px solid ${({ theme }) => theme.colors.orange3};
+      background-color: transparent;
+      border-color: ${({ theme }) => theme.colors.orange};
+
+      & + label {
+        top: 8%;
+        font-weight: 400;
+        ${({ theme }) => theme.mixins.fontSize12};
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: ${({ theme }) => theme.colors.gray13};
+
+      & + label {
+        top: 30%;
+        font-weight: 700;
+        ${({ theme }) => theme.mixins.fontSize16};
+        color: ${({ theme }) => theme.colors.gray12};
+      }
+    }
+  `,
+
+  loader: keyframes`
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
     }
   `,
 };
