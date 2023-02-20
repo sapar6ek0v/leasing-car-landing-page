@@ -183,13 +183,13 @@ export const CompanySlogan = styled.h5`
 
 export const BurgerMenu = styled.div`
   cursor: pointer;
-  ${({ theme }) => theme.mixins.column};
-  justify-content: center;
 
   @media (${({ theme }) => theme.bp.mobileS}) {
     gap: 4px;
     width: 26px;
     height: 26px;
+    ${({ theme }) => theme.mixins.column};
+    justify-content: center;
   }
 
   @media (${({ theme }) => theme.bp.tabletL}) {
@@ -198,11 +198,7 @@ export const BurgerMenu = styled.div`
     height: 28px;
   }
 
-  @media (${({ theme }) => theme.bp.mobileS}) {
-    display: block;
-  }
-
-  @media (${({ theme }) => theme.bp.tabletL}) {
+  @media (${({ theme }) => theme.bp.desktopXS}) {
     display: none;
   }
 `;

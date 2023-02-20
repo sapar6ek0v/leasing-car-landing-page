@@ -6,19 +6,19 @@ import NavbarLink from '../NavbarLink';
 import { ApplicationButton } from '../styles';
 import { Button, FixedWrapper, LinkWrapper, Wrapper } from './styles';
 
-const Menu = ({ opened, toggleMenu }) => {
+const Menu = ({ opened, onClose }) => {
   const { openModal, isOpen } = useModalContext();
 
   useEffect(() => {
     if (isOpen) {
-      toggleMenu();
+      onClose();
     }
   }, [isOpen]);
 
   return (
-    <FixedWrapper opened={opened} onClick={toggleMenu}>
+    <FixedWrapper opened={opened} onClick={onClose}>
       <Wrapper opened={opened} onClick={(event) => event.stopPropagation()}>
-        <Button onClick={toggleMenu} />
+        <Button onClick={onClose} />
         {!!navLinks ? (
           <LinkWrapper>
             {navLinks.map((link) => (

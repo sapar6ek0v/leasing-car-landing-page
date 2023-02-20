@@ -26,10 +26,10 @@ export const ContentWrapper = styled.div`
   ${(props) =>
     props.opened
       ? css`
-          animation: 1s linear forwards ${({ theme }) => theme.mixins.fadeInY};
+          animation: 0.7s linear forwards ${({ theme }) => theme.mixins.fadeInY};
         `
       : css`
-          animation: 1s linear forwards ${({ theme }) => theme.mixins.fadeInY};
+          animation: 0.7s linear forwards ${({ theme }) => theme.mixins.fadeInY};
         `};
 
   @media (${({ theme }) => theme.bp.mobileS}) {

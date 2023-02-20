@@ -46,7 +46,8 @@ const Navbar = () => {
     }
   }, [matchesMinWidth992]);
 
-  const toggleMenu = () => setIsMenuClicked(!isMenuClicked);
+  const closeMenu = () => setIsMenuClicked(false);
+  const openMenu = () => setIsMenuClicked(true);
 
   return (
     <>
@@ -70,7 +71,7 @@ const Navbar = () => {
                 </ApplicationButton>
               </ul>
             ) : (
-              <BurgerMenu onClick={toggleMenu}>
+              <BurgerMenu onClick={openMenu}>
                 <BurgerBar
                   clicked={isMenuClicked}
                   scrollDirection={scrollDirection}
@@ -92,7 +93,7 @@ const Navbar = () => {
         </Container>
       </HeaderWrapper>
 
-      <Menu opened={isMenuClicked} toggleMenu={toggleMenu} />
+      <Menu opened={isMenuClicked} onClose={closeMenu} />
     </>
   );
 };
