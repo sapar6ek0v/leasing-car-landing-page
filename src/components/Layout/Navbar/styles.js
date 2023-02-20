@@ -197,6 +197,14 @@ export const BurgerMenu = styled.div`
     width: 28px;
     height: 28px;
   }
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    display: block;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    display: none;
+  }
 `;
 
 export const BurgerBar = styled.div`
