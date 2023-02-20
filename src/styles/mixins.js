@@ -43,6 +43,11 @@ const mixins = {
     line-height: 120%;
   `,
 
+  fontSize26: css`
+    font-size: 26px;
+    line-height: 150%;
+  `,
+
   fontSize30: css`
     font-size: 30px;
     line-height: 36px;

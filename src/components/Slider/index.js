@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useModalContext } from '../../helpers/hooks/useModalContext';
 import { useSlider } from '../../helpers/hooks/useSlider';
@@ -79,6 +79,16 @@ const Slider = () => {
     setActiveBtn('left');
     prevSlide();
   };
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     handleNextSlide();
+  //   }, 5000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
   return (
     <SliderWrapper>

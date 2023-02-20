@@ -49,6 +49,9 @@ const theme = {
     gray15: '#828282',
     gray16: '#a0a0a0',
     gray17: '#EAEAEB',
+    gray18: '#F1F1F1',
+    darkBrown: 'rgba(51, 51, 51, 0.04)',
+    darkBrown2: 'rgba(51, 51, 51, 0.12)',
   },
 
   mixins,

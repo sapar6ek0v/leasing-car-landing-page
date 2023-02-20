@@ -39,7 +39,7 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 `;
-//TODO:
+
 export const NavbarWrapper = styled.nav`
   ${({ theme }) => theme.mixins.apart};
   gap: 95px;
@@ -51,22 +51,6 @@ export const NavbarWrapper = styled.nav`
 
   .rightSide {
     ${({ theme }) => theme.mixins.center};
-  }
-
-  .link {
-    padding: 6px 16px;
-    gap: 10px;
-    border-radius: 8px;
-
-    a {
-      text-decoration: none;
-      font-family: 'Gilroy';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 24px;
-      color: ${({ theme }) => theme.colors.gray};
-    }
   }
 `;
 //TODO:
@@ -110,8 +94,7 @@ export const Title = styled.h4`
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 700;
-  font-size: 22px;
-  line-height: 30px;
+  ${({ theme }) => theme.mixins.fontSize26};
 
   .orange {
     color: ${({ theme }) => theme.colors.orange};
