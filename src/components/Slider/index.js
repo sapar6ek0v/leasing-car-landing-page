@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
 
-import { useModalContext } from '../../helpers/hooks/useModalContext';
 import { useSlider } from '../../helpers/hooks/useSlider';
 import { useMediaQuery } from '../../helpers/hooks/useMediaQuery';
 import ChevronArrowLeft from '../svgs/ChevronArrowLeft';
 import ChevronArrowRight from '../svgs/ChevronArrowRight';
-import {
-  ButtonGroup,
-  Dot,
-  SliderButton,
-  SliderCard,
-  SliderControlButton,
-  SliderControls,
-  SliderDots,
-  SliderImage,
-  SliderImageWrapper,
-  SliderInformTitle,
-  SliderTitle,
-  SliderTitleStack,
-  SliderWrapper,
-} from './styles';
+import SliderCard from './SliderCard';
+import { ButtonGroup, Dot, SliderControlButton, SliderControls, SliderDots, SliderWrapper } from './styles';
 
 const Slider = () => {
   const data = [
@@ -69,7 +55,6 @@ const Slider = () => {
 
   const [activeBtn, setActiveBtn] = useState('right');
   const { slideIndex, prevSlide, nextSlide, moveDot } = useSlider(data);
-  const { openModal } = useModalContext();
   const matches = useMediaQuery('(min-width: 992px)');
 
   const handleNextSlide = () => {
@@ -86,25 +71,7 @@ const Slider = () => {
     <SliderWrapper>
       {data
         ? data.map((item, index) => (
-            <SliderCard key={item.id}>
-              {slideIndex === index && (
-                <>
-                  <SliderTitleStack>
-                    <SliderTitle active={index === slideIndex}>{item.title}</SliderTitle>
-                    {matches && (
-                      <SliderInformTitle active={index === slideIndex}>{item.slogan}</SliderInformTitle>
-                    )}
-                    <SliderButton onClick={openModal} type="button">
-                      Оставить заявку
-                    </SliderButton>
-                  </SliderTitleStack>
-
-                  <SliderImageWrapper active={index === slideIndex}>
-                    <SliderImage src={item.img} alt={item.imgAlt} />
-                  </SliderImageWrapper>
-                </>
-              )}
-            </SliderCard>
+            <SliderCard key={item.id} item={item} index={index} slideIndex={slideIndex} />
           ))
         : null}
       <SliderControls>

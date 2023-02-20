@@ -5,15 +5,28 @@ import { useModalContext } from '../../../helpers/hooks/useModalContext';
 import { useMediaQuery } from '../../../helpers/hooks/useMediaQuery';
 import { navLinks, componySlogan } from '../../../config';
 import NavbarLink from './NavbarLink';
-import { Button, CompanySlogan, Container, HeaderWrapper, Line, NavbarWrapper, Title } from './styles';
+import Menu from './Menu';
+import {
+  ApplicationButton,
+  BurgerBar,
+  BurgerMenu,
+  CompanySlogan,
+  Container,
+  HeaderWrapper,
+  Line,
+  NavbarWrapper,
+  Title,
+} from './styles';
 
 const Navbar = () => {
   const headerRef = useRef(null);
   const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const scrollDirection = useScrollDirection('down');
   const { openModal } = useModalContext();
-  const matches = useMediaQuery('(min-width: 992px)');
+  const matchesMinWidth992 = useMediaQuery('(min-width: 992px)');
+  const matchesMinWidth768 = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -27,31 +40,59 @@ const Navbar = () => {
     setScrolledToTop(window.pageYOffset < 50);
   }
 
+  useEffect(() => {
+    if (!!matchesMinWidth992) {
+      setIsMenuClicked(false);
+    }
+  }, [matchesMinWidth992]);
+
+  const toggleMenu = () => setIsMenuClicked(!isMenuClicked);
+
   return (
     <>
       <HeaderWrapper ref={headerRef} scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
         <Container>
           <NavbarWrapper>
             <div className="leftSide">
-              <Title>
+              <Title scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
                 <span className="orange">Leasing</span>
                 <span className="black">Car</span>
               </Title>
               <Line />
-              <CompanySlogan>{componySlogan}</CompanySlogan>
+              {matchesMinWidth768 && <CompanySlogan>{componySlogan}</CompanySlogan>}
             </div>
 
-            {matches && (
+            {matchesMinWidth992 ? (
               <ul className="rightSide">
                 {!!navLinks ? navLinks.map((link) => <NavbarLink key={link.path} link={link} />) : null}
-                <Button onClick={openModal} type="button">
+                <ApplicationButton onClick={openModal} type="button">
                   Оставить заявку
-                </Button>
+                </ApplicationButton>
               </ul>
+            ) : (
+              <BurgerMenu onClick={toggleMenu}>
+                <BurgerBar
+                  clicked={isMenuClicked}
+                  scrollDirection={scrollDirection}
+                  scrolledToTop={scrolledToTop}
+                />
+                <BurgerBar
+                  clicked={isMenuClicked}
+                  scrollDirection={scrollDirection}
+                  scrolledToTop={scrolledToTop}
+                />
+                <BurgerBar
+                  clicked={isMenuClicked}
+                  scrollDirection={scrollDirection}
+                  scrolledToTop={scrolledToTop}
+                />
+              </BurgerMenu>
             )}
           </NavbarWrapper>
         </Container>
       </HeaderWrapper>
+
+      <Menu opened={isMenuClicked} toggleMenu={toggleMenu} />
     </>
   );
 };

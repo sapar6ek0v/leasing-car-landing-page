@@ -14,6 +14,14 @@ export const HeaderWrapper = styled.header`
   user-select: auto !important;
   backdrop-filter: blur(10px);
 
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    background: ${({ theme }) => theme.colors.black3};
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    background: ${({ theme }) => theme.colors.white};
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     ${(props) =>
       props.scrollDirection === 'up' &&
@@ -39,6 +47,10 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 
+  @media (${({ theme }) => theme.bp.mobileL}) {
+    width: 450px;
+  }
+
   @media (${({ theme }) => theme.bp.tabletL}) {
     width: 696px;
   }
@@ -54,7 +66,6 @@ export const Container = styled.div`
 
 export const NavbarWrapper = styled.nav`
   ${({ theme }) => theme.mixins.apart};
-  gap: 95px;
   width: 100%;
 
   .leftSide {
@@ -64,9 +75,17 @@ export const NavbarWrapper = styled.nav`
   .rightSide {
     ${({ theme }) => theme.mixins.center};
   }
+
+  @media (${({ theme }) => theme.bp.mobileL}) {
+    gap: 15px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    gap: 95px;
+  }
 `;
 //TODO:
-export const Button = styled.button`
+export const ApplicationButton = styled.button`
   margin-left: 24px;
   padding: 12px 24px;
   border: 1px solid ${({ theme }) => theme.colors.orange};
@@ -112,8 +131,27 @@ export const Title = styled.h4`
     color: ${({ theme }) => theme.colors.orange};
   }
 
-  .black {
-    color: ${({ theme }) => theme.colors.black};
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    .black {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    .black {
+      color: ${({ theme }) => theme.colors.black};
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .black {
+      ${(props) =>
+        props.scrollDirection === 'down' &&
+        !props.scrolledToTop &&
+        css`
+          color: ${({ theme }) => theme.colors.black};
+        `};
+    }
   }
 `;
 
@@ -122,6 +160,14 @@ export const Line = styled.div`
   height: 30px;
   background: ${({ theme }) => theme.colors.gray2};
   margin: 0 20px 0 17px;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    display: none;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    display: block;
+  }
 `;
 //TODO:
 export const CompanySlogan = styled.h5`
@@ -133,4 +179,74 @@ export const CompanySlogan = styled.h5`
   letter-spacing: 0.92px;
   text-transform: lowercase;
   color: ${({ theme }) => theme.colors.black2};
+`;
+
+export const BurgerMenu = styled.div`
+  cursor: pointer;
+  ${({ theme }) => theme.mixins.column};
+  justify-content: center;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    gap: 4px;
+    width: 26px;
+    height: 26px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    gap: 7px;
+    width: 28px;
+    height: 28px;
+  }
+`;
+
+export const BurgerBar = styled.div`
+  width: 100%;
+  height: 2px;
+  transition: ${(props) =>
+    props.clicked ? 'ease-out 0.5s' : 'cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s'};
+
+  &:nth-child(2) {
+    transform: ${(props) => (props.clicked ? 'scale(0.01)' : 'rotate(0) translate(0)')};
+  }
+
+  &:nth-child(3) {
+    width: ${(props) => (props.clicked ? '100%' : '80%')};
+  }
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    background-color: ${({ theme }) => theme.colors.white};
+
+    &:nth-child(1) {
+      transform: ${(props) =>
+        props.clicked ? 'rotate(45deg) translate(3.1px, 6px)' : 'rotate(0) translate(0)'};
+    }
+
+    &:nth-child(3) {
+      transform: ${(props) =>
+        props.clicked ? 'rotate(135deg) translate(-2.9px, 6px)' : 'rotate(0) translate(0)'};
+    }
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    background-color: ${({ theme }) => theme.colors.gray};
+
+    &:nth-child(1) {
+      transform: ${(props) =>
+        props.clicked ? 'rotate(45deg) translate(5.2px, 7.5px)' : 'rotate(0) translate(0)'};
+    }
+
+    &:nth-child(3) {
+      transform: ${(props) =>
+        props.clicked ? 'rotate(135deg) translate(-5.1px, 7.5px)' : 'rotate(0) translate(0)'};
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    ${(props) =>
+      props.scrollDirection === 'down' &&
+      !props.scrolledToTop &&
+      css`
+        background-color: ${({ theme }) => theme.colors.gray};
+      `};
+  }
 `;
