@@ -166,12 +166,12 @@ const Modal = () => {
 
           <SocialButtonGroup>
             <SocialButton>
-              <a href="https://web.telegram.org/k/" target="_blank">
+              <a href="https://web.telegram.org/k/" target="_blank" rel="noreferrer">
                 <BrandWhatsapp size={20} strokeWidth={2} />;
               </a>
             </SocialButton>
             <SocialButton>
-              <a href="https://twitter.com/?lang=ru" target="_blank">
+              <a href="https://twitter.com/?lang=ru" target="_blank" rel="noreferrer">
                 <BrandTelegram size={20} strokeWidth={2} />;
               </a>
             </SocialButton>

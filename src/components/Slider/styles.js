@@ -8,19 +8,31 @@ export const SliderWrapper = styled.section`
   border-radius: 32px;
   padding: 70px 44px 44px 70px;
   overflow: hidden;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    min-height: 550px;
+    border-radius: 0px 0px 32px 32px;
+    padding: 20px 24px;
+  }
 `;
 
 export const SliderCard = styled.div``;
 
 export const SliderTitleStack = styled.div`
   position: absolute;
-  top: 70px;
+  /* top: 70px; */
   left: 70px;
   z-index: 1;
   ${({ theme }) => theme.mixins.column};
   align-items: baseline;
   max-width: 585px;
   gap: 24px;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    left: 20px;
+    bottom: 120px;
+    max-width: 249px;
+  }
 `;
 //TODO:
 export const SliderTitle = styled.h1`
@@ -43,6 +55,11 @@ export const SliderTitle = styled.h1`
     css`
       animation: 1s linear forwards ${({ theme }) => theme.mixins.fadeIn};
     `}
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    font-size: 32px;
+    line-height: 90%;
+  }
 `;
 //TODO:
 export const SliderInformTitle = styled.p`
@@ -104,6 +121,12 @@ export const SliderImageWrapper = styled.div`
     css`
       animation: 1s linear forwards ${({ theme }) => theme.mixins.fadeInX};
     `}
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    height: 261px;
+    width: 462px;
+    margin: -24px;
+  }
 `;
 
 export const SliderImage = styled.img`
@@ -146,16 +169,6 @@ export const SliderControlButton = styled.button`
     width: 22px;
     fill: ${({ theme }) => theme.colors.white};
   }
-
-  /* &:after {
-    content: '';
-    border-right: 2px solid red;
-    height: 39px;
-    width: 100%;
-    position: absolute;
-    right: 0;
-    border-radius: 50%;
-  } */
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray7};

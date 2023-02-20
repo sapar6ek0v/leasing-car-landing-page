@@ -33,6 +33,11 @@ const mixins = {
     line-height: 12px;
   `,
 
+  fontSize14: css`
+    font-size: 14px;
+    line-height: 136%;
+  `,
+
   fontSize16: css`
     font-size: 16px;
     line-height: 20px;
@@ -41,6 +46,11 @@ const mixins = {
   fontSize20: css`
     font-size: 20px;
     line-height: 120%;
+  `,
+
+  fontSize22: css`
+    font-size: 22px;
+    line-height: 20px;
   `,
 
   fontSize26: css`
@@ -228,6 +238,17 @@ const mixins = {
     }
     100%{
       transform: rotate(360deg);
+    }
+  `,
+
+  container: css`
+    margin: 0 auto;
+    @media (${({ theme }) => theme.bp.desktopS}) {
+      max-width: 928px;
+    }
+
+    @media (${({ theme }) => theme.bp.mobileS}) {
+      max-width: 280px;
     }
   `,
 };

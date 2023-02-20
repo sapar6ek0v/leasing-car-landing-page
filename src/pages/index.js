@@ -5,11 +5,13 @@ import Layout from '../components/Layout';
 import Slider from '../components/Slider';
 import Calculator from '../components/Calculator';
 import Modal from '../components/Modal';
+import Seo from '../components/Seo';
 
 export default function Home() {
   return (
     <ModalProvider>
       <Layout>
+        <Seo />
         <Slider />
         <Calculator />
         <Modal />

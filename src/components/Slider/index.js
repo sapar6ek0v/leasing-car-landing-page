@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { useModalContext } from '../../helpers/hooks/useModalContext';
 import { useSlider } from '../../helpers/hooks/useSlider';
+import { useMediaQuery } from '../../helpers/hooks/useMediaQuery';
 import ChevronArrowLeft from '../svgs/ChevronArrowLeft';
 import ChevronArrowRight from '../svgs/ChevronArrowRight';
 import {
@@ -69,6 +70,7 @@ const Slider = () => {
   const [activeBtn, setActiveBtn] = useState('right');
   const { slideIndex, prevSlide, nextSlide, moveDot } = useSlider(data);
   const { openModal } = useModalContext();
+  const matches = useMediaQuery('(min-width: 768px)');
 
   const handleNextSlide = () => {
     setActiveBtn('right');
@@ -80,16 +82,6 @@ const Slider = () => {
     prevSlide();
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     handleNextSlide();
-  //   }, 5000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
-
   return (
     <SliderWrapper>
       {data
@@ -99,7 +91,9 @@ const Slider = () => {
                 <>
                   <SliderTitleStack>
                     <SliderTitle active={index === slideIndex}>{item.title}</SliderTitle>
-                    <SliderInformTitle active={index === slideIndex}>{item.slogan}</SliderInformTitle>
+                    {matches && (
+                      <SliderInformTitle active={index === slideIndex}>{item.slogan}</SliderInformTitle>
+                    )}
                     <SliderButton onClick={openModal} type="button">
                       Оставить заявку
                     </SliderButton>
@@ -119,14 +113,16 @@ const Slider = () => {
             <Dot key={index} onClick={() => moveDot(index)} active={slideIndex === index} />
           ))}
         </SliderDots>
-        <ButtonGroup>
-          <SliderControlButton onClick={handlePrevSlide} active={activeBtn === 'left'}>
-            <ChevronArrowLeft />
-          </SliderControlButton>
-          <SliderControlButton onClick={handleNextSlide} active={activeBtn === 'right'}>
-            <ChevronArrowRight />
-          </SliderControlButton>
-        </ButtonGroup>
+        {matches && (
+          <ButtonGroup>
+            <SliderControlButton onClick={handlePrevSlide} active={activeBtn === 'left'}>
+              <ChevronArrowLeft />
+            </SliderControlButton>
+            <SliderControlButton onClick={handleNextSlide} active={activeBtn === 'right'}>
+              <ChevronArrowRight />
+            </SliderControlButton>
+          </ButtonGroup>
+        )}
       </SliderControls>
     </SliderWrapper>
   );

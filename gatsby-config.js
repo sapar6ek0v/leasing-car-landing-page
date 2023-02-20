@@ -8,5 +8,12 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [`gatsby-plugin-styled-components`],
+  plugins: [`gatsby-plugin-styled-components`, `gatsby-plugin-react-helmet`],
+  siteMetadata: {
+    title: `Leasing Car`,
+    description: `Авто в лизинг для физических лиц`,
+    twitterUsername: ``,
+    image: `/logo.png`,
+    siteUrl: `https://leasing-car.vercel.app/`,
+  },
 };

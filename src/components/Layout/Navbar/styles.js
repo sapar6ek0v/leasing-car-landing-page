@@ -31,6 +31,10 @@ export const HeaderWrapper = styled.header`
         border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
       `};
   }
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`

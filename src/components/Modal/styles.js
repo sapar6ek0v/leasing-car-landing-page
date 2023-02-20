@@ -32,6 +32,10 @@ export const ContentWrapper = styled.div`
       : css`
           animation: 1s linear forwards ${({ theme }) => theme.mixins.fadeInY};
         `};
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    height: ${(props) => (props.opened ? 'calc(100vh - 60px)' : '0')};
+  }
 `;
 
 export const Container = styled.div`
@@ -41,12 +45,20 @@ export const Container = styled.div`
   ${({ theme }) => theme.mixins.column};
   justify-content: center;
   gap: 24px;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    width: 280px;
+  }
 `;
 
 export const Form = styled.form`
   ${({ theme }) => theme.mixins.column};
   gap: 32px;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    gap: 8px;
+  }
 `;
 //TODO:
 export const Title = styled.h5`
@@ -56,6 +68,10 @@ export const Title = styled.h5`
   font-size: 54px;
   line-height: 90%;
   color: ${({ theme }) => theme.colors.black};
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    ${({ theme }) => theme.mixins.fontSize22};
+  }
 `;
 //TODO:
 export const Description = styled.p`
@@ -65,7 +81,11 @@ export const Description = styled.p`
   font-weight: 400;
   ${({ theme }) => theme.mixins.fontSize16};
   color: ${({ theme }) => theme.colors.gray};
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    ${({ theme }) => theme.mixins.fontSize14};
+  }
 `;
 
 export const InputGroup = styled.div`
@@ -73,6 +93,11 @@ export const InputGroup = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin-bottom: ${(props) => props.error && '12px'};
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 `;
 
 export const InputLabelGroup = styled.div`
@@ -117,9 +142,15 @@ export const Label = styled.label`
 
 export const ButtonBlock = styled.div`
   ${({ theme }) => theme.mixins.apart};
-  padding: 26px 23px 26px 33px;
-  border: 2px solid ${({ theme }) => theme.colors.gray11};
+  /* padding: 26px 23px 26px 33px; */
+  /* border: 2px solid ${({ theme }) => theme.colors.gray11}; */
   border-radius: 16px;
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    ${({ theme }) => theme.mixins.fCenter};
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 //TODO:
 export const InformTitle = styled.p`
@@ -179,6 +210,7 @@ export const CloseButton = styled.button`
   height: 48px;
   border: none;
   background: ${({ theme }) => theme.colors.gray11};
+  ${({ theme }) => theme.mixins.smallButtonEffects};
   border-radius: 100px;
 
   svg {
@@ -194,6 +226,10 @@ export const CloseButton = styled.button`
     position: absolute;
     top: 50%;
     left: 50%;
+
+    @media (${({ theme }) => theme.bp.mobileS}) {
+      width: 9px;
+    }
   }
 
   &::before {
@@ -204,7 +240,10 @@ export const CloseButton = styled.button`
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-  ${({ theme }) => theme.mixins.smallButtonEffects};
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 //TODO:
 export const ErrorTitle = styled.span`

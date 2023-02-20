@@ -29,4 +29,11 @@ export const Input = styled.input`
       color: ${({ theme }) => theme.colors.gray12};
     }
   }
+
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    max-height: 60px;
+    height: 60px;
+    ${({ theme }) => theme.mixins.fontSize22};
+    padding: 20px;
+  }
 `;
