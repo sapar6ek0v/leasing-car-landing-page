@@ -3,14 +3,13 @@ import mixins from './mixins';
 const theme = {
   bp: {
     mobileS: `min-width: 320px`,
-    mobileM: `min-width: 400px`,
     mobileL: `min-width: 480px`,
-    tabletS: `min-width: 600px`,
+    mobileX: `min-width: 576px`,
     tabletL: `min-width: 768px`,
-    desktopXS: `min-width: 900px`,
+    desktopXS: `min-width: 992px`,
     desktopS: `min-width: 1024px`,
     desktopM: `min-width: 1200px`,
-    desktopL: `min-width: 1400px`,
+    desktopL: `min-width: 1440px`,
   },
 
   colors: {

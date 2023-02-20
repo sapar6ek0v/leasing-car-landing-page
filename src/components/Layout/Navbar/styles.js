@@ -31,16 +31,24 @@ export const HeaderWrapper = styled.header`
         border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
       `};
   }
-
-  @media (${({ theme }) => theme.bp.mobileS}) {
-    display: none;
-  }
 `;
 
 export const Container = styled.div`
-  @media (${({ theme }) => theme.bp.desktopS}) {
-    max-width: 928px;
+  @media (${({ theme }) => theme.bp.mobileS}) {
+    width: 280px;
     margin: 0 auto;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    width: 696px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    width: 928px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopL}) {
+    width: 1344px;
   }
 `;
 

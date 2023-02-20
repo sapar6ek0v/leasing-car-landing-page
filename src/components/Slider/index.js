@@ -70,7 +70,7 @@ const Slider = () => {
   const [activeBtn, setActiveBtn] = useState('right');
   const { slideIndex, prevSlide, nextSlide, moveDot } = useSlider(data);
   const { openModal } = useModalContext();
-  const matches = useMediaQuery('(min-width: 768px)');
+  const matches = useMediaQuery('(min-width: 992px)');
 
   const handleNextSlide = () => {
     setActiveBtn('right');

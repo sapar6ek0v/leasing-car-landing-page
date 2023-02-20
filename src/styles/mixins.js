@@ -63,6 +63,11 @@ const mixins = {
     line-height: 36px;
   `,
 
+  fontSize54: css`
+    font-size: 54px;
+    line-height: 90%;
+  `,
+
   fadeIn: keyframes`
     0% {
         opacity: 0; 

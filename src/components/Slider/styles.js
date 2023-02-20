@@ -1,12 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const SliderWrapper = styled.section`
-  max-width: 928px;
-  max-height: 473px;
   position: relative;
   background: ${({ theme }) => theme.colors.black3};
-  border-radius: 32px;
-  padding: 70px 44px 44px 70px;
   overflow: hidden;
 
   @media (${({ theme }) => theme.bp.mobileS}) {
@@ -14,18 +10,32 @@ export const SliderWrapper = styled.section`
     border-radius: 0px 0px 32px 32px;
     padding: 20px 24px;
   }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    min-height: 472px;
+    max-height: 696px;
+    border-radius: 32px;
+    padding: 0 44px 68px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    max-width: 928px;
+    max-height: 473px;
+    padding: 70px 44px 0px 70px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopL}) {
+    max-width: 1344px;
+    padding: 0px 0px 0px 70px;
+  }
 `;
 
 export const SliderCard = styled.div``;
 
 export const SliderTitleStack = styled.div`
   position: absolute;
-  /* top: 70px; */
-  left: 70px;
   z-index: 1;
   ${({ theme }) => theme.mixins.column};
-  align-items: baseline;
-  max-width: 585px;
   gap: 24px;
 
   @media (${({ theme }) => theme.bp.mobileS}) {
@@ -33,14 +43,35 @@ export const SliderTitleStack = styled.div`
     bottom: 120px;
     max-width: 249px;
   }
+
+  @media (${({ theme }) => theme.bp.mobileL}) {
+    left: 20px;
+    right: 20px;
+    margin: 0 auto;
+    max-width: 270px;
+    align-items: center;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    left: 44px;
+    right: 44px;
+    bottom: 68px;
+    align-items: baseline;
+    max-width: 585px;
+    margin: 0;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    top: 70px;
+    left: 70px;
+    max-width: 585px;
+  }
 `;
 //TODO:
 export const SliderTitle = styled.h1`
   font-family: 'Nekst-Black';
   font-style: normal;
   font-weight: 900;
-  font-size: 54px;
-  line-height: 90%;
   color: ${({ theme }) => theme.colors.white};
   margin-bottom: 8px;
 
@@ -59,6 +90,10 @@ export const SliderTitle = styled.h1`
   @media (${({ theme }) => theme.bp.mobileS}) {
     font-size: 32px;
     line-height: 90%;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    ${({ theme }) => theme.mixins.fontSize54};
   }
 `;
 //TODO:
@@ -95,10 +130,7 @@ export const SliderButton = styled.button`
 
 export const SliderImageWrapper = styled.div`
   position: relative;
-  height: 379px;
-  width: 675px;
   border-radius: 0px;
-  margin-left: auto;
 
   &:after {
     content: '';
@@ -126,6 +158,29 @@ export const SliderImageWrapper = styled.div`
     height: 261px;
     width: 462px;
     margin: -24px;
+  }
+
+  @media (${({ theme }) => theme.bp.mobileL}) {
+    width: 100%;
+    margin: 0;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    width: 571px;
+    height: 321px;
+    margin: 0 auto;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    height: 379px;
+    width: 675px;
+    margin: 0;
+    margin-left: auto;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopL}) {
+    height: 472px;
+    width: 841px;
   }
 `;
 

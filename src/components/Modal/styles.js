@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   position: relative;
-  height: ${(props) => (props.opened ? 'calc(100vh - 120px)' : '0')};
   width: ${(props) => (props.opened ? '100vw' : '0')};
   display: ${(props) => (props.opened ? 'block' : 'none')};
   background: ${({ theme }) => theme.colors.white};
@@ -36,6 +35,14 @@ export const ContentWrapper = styled.div`
   @media (${({ theme }) => theme.bp.mobileS}) {
     height: ${(props) => (props.opened ? 'calc(100vh - 60px)' : '0')};
   }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    height: ${(props) => (props.opened ? 'calc(100vh - 80px)' : '0')};
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    height: ${(props) => (props.opened ? 'calc(100vh - 52px)' : '0')};
+  }
 `;
 
 export const Container = styled.div`
@@ -49,15 +56,26 @@ export const Container = styled.div`
   @media (${({ theme }) => theme.bp.mobileS}) {
     width: 280px;
   }
+
+  @media (${({ theme }) => theme.bp.mobileL}) {
+    width: 450px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    width: 696px;
+  }
 `;
 
 export const Form = styled.form`
   ${({ theme }) => theme.mixins.column};
-  gap: 32px;
-  /* margin-bottom: 8px; */
 
   @media (${({ theme }) => theme.bp.mobileS}) {
     gap: 8px;
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    gap: 32px;
+    margin-bottom: 8px;
   }
 `;
 //TODO:
@@ -65,12 +83,14 @@ export const Title = styled.h5`
   font-family: 'Nekst-Black';
   font-style: normal;
   font-weight: 900;
-  font-size: 54px;
-  line-height: 90%;
   color: ${({ theme }) => theme.colors.black};
 
   @media (${({ theme }) => theme.bp.mobileS}) {
     ${({ theme }) => theme.mixins.fontSize22};
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    ${({ theme }) => theme.mixins.fontSize54};
   }
 `;
 //TODO:
@@ -79,24 +99,33 @@ export const Description = styled.p`
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 400;
-  ${({ theme }) => theme.mixins.fontSize16};
   color: ${({ theme }) => theme.colors.gray};
-  /* margin-bottom: 20px; */
 
   @media (${({ theme }) => theme.bp.mobileS}) {
     ${({ theme }) => theme.mixins.fontSize14};
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    ${({ theme }) => theme.mixins.fontSize16};
+  }
+
+  @media (${({ theme }) => theme.bp.desktopXS}) {
+    margin-bottom: 20px;
   }
 `;
 
 export const InputGroup = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
   margin-bottom: ${(props) => props.error && '12px'};
 
   @media (${({ theme }) => theme.bp.mobileS}) {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 `;
 
@@ -141,15 +170,18 @@ export const Label = styled.label`
 `;
 
 export const ButtonBlock = styled.div`
-  ${({ theme }) => theme.mixins.apart};
-  /* padding: 26px 23px 26px 33px; */
-  /* border: 2px solid ${({ theme }) => theme.colors.gray11}; */
-  border-radius: 16px;
-
   @media (${({ theme }) => theme.bp.mobileS}) {
     ${({ theme }) => theme.mixins.fCenter};
     flex-direction: column;
     gap: 10px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    ${({ theme }) => theme.mixins.apart};
+    flex-direction: row;
+    padding: 26px 23px 26px 33px;
+    border: 2px solid ${({ theme }) => theme.colors.gray11};
+    border-radius: 16px;
   }
 `;
 //TODO:
@@ -206,8 +238,6 @@ export const CloseButtonWrapper = styled.div`
 
 export const CloseButton = styled.button`
   position: relative;
-  width: 48px;
-  height: 48px;
   border: none;
   background: ${({ theme }) => theme.colors.gray11};
   ${({ theme }) => theme.mixins.smallButtonEffects};
@@ -221,7 +251,6 @@ export const CloseButton = styled.button`
   &::after {
     content: '';
     display: block;
-    width: 19px;
     border: 1.5px solid ${({ theme }) => theme.colors.gray15};
     position: absolute;
     top: 50%;
@@ -229,6 +258,10 @@ export const CloseButton = styled.button`
 
     @media (${({ theme }) => theme.bp.mobileS}) {
       width: 9px;
+    }
+
+    @media (${({ theme }) => theme.bp.tabletL}) {
+      width: 19px;
     }
   }
 
@@ -243,6 +276,11 @@ export const CloseButton = styled.button`
   @media (${({ theme }) => theme.bp.mobileS}) {
     width: 24px;
     height: 24px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    width: 48px;
+    height: 48px;
   }
 `;
 //TODO:

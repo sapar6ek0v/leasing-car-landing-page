@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { useScrollDirection } from '../../../helpers/hooks/useScrollDirection';
 import { useModalContext } from '../../../helpers/hooks/useModalContext';
+import { useMediaQuery } from '../../../helpers/hooks/useMediaQuery';
 import { navLinks, componySlogan } from '../../../config';
 import NavbarLink from './NavbarLink';
 import { Button, CompanySlogan, Container, HeaderWrapper, Line, NavbarWrapper, Title } from './styles';
@@ -12,6 +13,7 @@ const Navbar = () => {
 
   const scrollDirection = useScrollDirection('down');
   const { openModal } = useModalContext();
+  const matches = useMediaQuery('(min-width: 992px)');
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -39,12 +41,14 @@ const Navbar = () => {
               <CompanySlogan>{componySlogan}</CompanySlogan>
             </div>
 
-            <ul className="rightSide">
-              {!!navLinks ? navLinks.map((link) => <NavbarLink key={link.path} link={link} />) : null}
-              <Button onClick={openModal} type="button">
-                Оставить заявку
-              </Button>
-            </ul>
+            {matches && (
+              <ul className="rightSide">
+                {!!navLinks ? navLinks.map((link) => <NavbarLink key={link.path} link={link} />) : null}
+                <Button onClick={openModal} type="button">
+                  Оставить заявку
+                </Button>
+              </ul>
+            )}
           </NavbarWrapper>
         </Container>
       </HeaderWrapper>

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 //TODO:
 export const Input = styled.input`
   width: 100%;
-  max-height: 68px;
   box-sizing: border-box;
   background: ${({ theme }) => theme.colors.gray11};
   border: 2px solid ${({ theme }) => theme.colors.gray11};
@@ -10,8 +9,7 @@ export const Input = styled.input`
   font-family: 'Nekst-Black';
   font-style: normal;
   font-weight: 900;
-  padding: 16px 24px;
-  ${({ theme }) => theme.mixins.fontSize30};
+
   color: ${({ theme }) => theme.colors.gray};
   transition: var(--transition);
 
@@ -35,5 +33,12 @@ export const Input = styled.input`
     height: 60px;
     ${({ theme }) => theme.mixins.fontSize22};
     padding: 20px;
+  }
+
+  @media (${({ theme }) => theme.bp.tabletL}) {
+    max-height: 68px;
+    height: 68px;
+    padding: 16px 24px;
+    ${({ theme }) => theme.mixins.fontSize30};
   }
 `;
